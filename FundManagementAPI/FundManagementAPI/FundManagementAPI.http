@@ -1,0 +1,82 @@
+@FundManagementAPI_HostAddress = http://localhost:5001
+
+POST {{FundManagementAPI_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "requestor",
+  "password": "password123"
+}
+
+###
+
+GET {{FundManagementAPI_HostAddress}}/api/cash-advance?userId=1&role=requestor&department=MIS
+Accept: application/json
+
+###
+
+POST {{FundManagementAPI_HostAddress}}/api/cash-advance/1/transfer
+Content-Type: application/json
+
+{
+  "toUserId": 2,
+  "amount": 2500,
+  "transferWholeRequest": false,
+  "notes": "Partial transfer to another payee."
+}
+
+###
+
+POST {{FundManagementAPI_HostAddress}}/api/cash-advance/1/transfer
+Content-Type: application/json
+
+{
+  "toUserId": 2,
+  "amount": 0,
+  "transferWholeRequest": true,
+  "notes": "Whole request transfer."
+}
+
+###
+
+POST {{FundManagementAPI_HostAddress}}/api/cash-advance/1/transfer-response
+Content-Type: application/json
+
+{
+  "receiverUserId": 2,
+  "accepted": true,
+  "notes": "Transfer acknowledged."
+}
+
+###
+
+POST {{FundManagementAPI_HostAddress}}/api/cash-advance/1/transfer-response
+Content-Type: application/json
+
+{
+  "receiverUserId": 2,
+  "accepted": false,
+  "notes": "Transfer denied."
+}
+
+###
+
+POST {{FundManagementAPI_HostAddress}}/api/cash-advance/1/department-decision
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "approved": true,
+  "notes": "Approved by department head."
+}
+
+###
+
+POST {{FundManagementAPI_HostAddress}}/api/cash-advance/1/accounting-decision
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "approved": true,
+  "notes": "Checked and approved for closure."
+}

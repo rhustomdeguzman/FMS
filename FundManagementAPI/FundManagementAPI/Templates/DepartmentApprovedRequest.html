@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Approved Request {{ReferenceNumber}}</title>
+  <style>
+    @page { size: A4; margin: 18mm; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: #17243f;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    header { border-bottom: 2px solid #02c988; padding-bottom: 14px; }
+    h1 { margin: 0; font-size: 22px; letter-spacing: 0; }
+    h2 { margin: 24px 0 10px; font-size: 14px; }
+    .muted { color: #5c6b7a; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .field {
+      border: 1px solid #d9e1e8;
+      border-radius: 6px;
+      padding: 10px 12px;
+      min-height: 58px;
+      background: #f5f7ff;
+    }
+    .label {
+      color: #5c6b7a;
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .value {
+      display: block;
+      margin-top: 4px;
+      font-weight: 700;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+    th, td {
+      border: 1px solid #d9e1e8;
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #02c988;
+      color: #FFF;
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+    .amount { text-align: right; white-space: nowrap; }
+    .empty { color: #5c6b7a; text-align: center; }
+    .total {
+      margin-top: 10px;
+      text-align: right;
+      font-weight: 700;
+    }
+    footer {
+      border-top: 1px solid #d9e1e8;
+      color: #5c6b7a;
+      font-size: 10px;
+      margin-top: 24px;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Cash Advance Request</h1>
+    <p class="muted">{{Purpose}}</p>
+  </header>
+
+  <section class="grid">
+    <div class="field">
+      <span class="label">Ref No</span>
+      <span class="value">{{ReferenceNumber}}</span>
+    </div>
+    <div class="field">
+      <span class="label">Requestor</span>
+      <span class="value">{{RequestorName}}</span>
+    </div>
+    <div class="field">
+      <span class="label">Created</span>
+      <span class="value">{{CreatedAt}}</span>
+    </div>
+    <div class="field">
+      <span class="label">Due Date</span>
+      <span class="value">{{DueDate}}</span>
+    </div>
+    <div class="field">
+      <span class="label">Source</span>
+      <span class="value">{{Source}}</span>
+    </div>
+    <div class="field">
+      <span class="label">Department Approver</span>
+      <span class="value">{{DepartmentApprover}}</span>
+    </div>
+  </section>
+
+  <h2>Receipt Details</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Vendor</th>
+        <th>Description</th>
+        <th>Project</th>
+        <th>Profit Cost Center</th>
+        <th>Amount</th>
+        <th>Invoice Ref.</th>
+        <th>Type of Expense</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{ReceiptRows}}
+    </tbody>
+  </table>
+  <p class="total">Receipt Total: {{ReceiptTotal}}</p>
+
+  <footer>
+    Generated {{GeneratedAt}} from Fund Management System.
+  </footer>
+</body>
+</html>

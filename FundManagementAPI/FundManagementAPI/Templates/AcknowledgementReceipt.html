@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acknowledgement Receipt</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: #9e9e9e;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .page-frame {
+            width: 918px;
+            height: 1188px;
+            margin: 13px auto;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 1px 1px 3px #333;
+        }
+
+        .page {
+            position: relative;
+            width: 612pt;
+            height: 792pt;
+            overflow: hidden;
+            background: #fff;
+            transform: scale(1.125);
+            transform-origin: left top;
+        }
+
+        .print-area {
+            position: absolute;
+            left: 18pt;
+            bottom: 18pt;
+            width: 576pt;
+            height: 756pt;
+            overflow: hidden;
+        }
+
+        .field {
+            position: absolute;
+            margin: 0;
+            color: #000;
+            white-space: nowrap;
+            line-height: 0.938477;
+            font-weight: 700;
+            transform: translateY(10.6pt);
+        }
+
+        .font-large {
+            font-size: 7.8pt;
+        }
+
+        .font-medium {
+            font-size: 6.95pt;
+        }
+
+        .font-small {
+            font-size: 6.05pt;
+        }
+
+        .date {
+            left: 404pt;
+            bottom: 667.65pt;
+        }
+
+        .payee {
+            left: 219pt;
+            bottom: 651.6pt;
+        }
+
+        .amount-words {
+            left: 158pt;
+            bottom: 612.6pt;
+        }
+
+        .main-amount {
+            left: 165pt;
+            bottom: 597.65pt;
+        }
+
+        .property {
+            left: 195pt;
+            bottom: 639.6pt;
+        }
+
+        .amount-one {
+            left: 372pt;
+            bottom: 518.65pt;
+        }
+
+        .amount-two {
+            left: 372pt;
+            bottom: 573.65pt;
+        }
+
+        .reference {
+            left: 163pt;
+            bottom: 574.6pt;
+        }
+
+        .prepared-by {
+            left: 407.75pt;
+            bottom: 481.6pt;
+        }
+
+        .category-right {
+            left: 336pt;
+            bottom: 598.6pt;
+        }
+
+        .category-left {
+            left: 0;
+            bottom: 687.55pt;
+        }
+
+        .bottom-amount {
+            left: 68pt;
+            bottom: 686.6pt;
+        }
+
+        .main-amount,
+        .amount-one,
+        .amount-two,
+        .reference,
+        .category-right,
+        .category-left,
+        .bottom-amount {
+            transform: translateY(7.8pt);
+        }
+
+        @media print {
+            @page {
+                size: 8.5in 11in;
+                margin: 0;
+            }
+
+            html,
+            body {
+                width: 8.5in;
+                height: 11in;
+                background: #fff;
+            }
+
+            .page-frame {
+                width: 612pt;
+                height: 792pt;
+                margin: 0;
+                box-shadow: none;
+            }
+
+            .page {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page-frame">
+        <section class="page">
+            <div class="print-area">
+                <p class="field font-large date">{{Date Today}}</p>
+
+                <p class="field font-medium payee">
+                    {{Requestor}}
+                </p>
+
+                <p class="field font-medium amount-words">
+                    {{Amount in Words}}
+                </p>
+
+                <p class="field font-large main-amount">{{Return Amount}}</p>
+
+                <p class="field font-medium property">
+                    {{Department}}
+                </p>
+
+                <p class="field font-large amount-one">{{Return Amount}}</p>
+                <p class="field font-large amount-two">{{Return Amount}}</p>
+
+                <p class="field font-medium reference">
+                    {{Request No.}}
+                </p>
+
+                <p class="field font-medium prepared-by">
+                    {{Cashier User}}
+                </p>
+
+                <p class="field font-medium category-right">{{Request No.}}</p>
+                <p class="field font-small category-left">{{Request No.}}</p>
+                <p class="field font-medium bottom-amount">{{Return Amount}}</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

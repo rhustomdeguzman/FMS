@@ -1,0 +1,25 @@
+# Dependencies and generated output
+**/node_modules/
+**/bin/
+**/obj/
+**/dist/
+**/.vs/
+**/.git/
+**/.agents/
+**/.codex-build-check/
+.codex-run/
+outputs/
+tmp/
+FundManagementAPI/*build-verify/
+FundManagementAPI/rfp-sp-file-checks/
+*.log
+*.zip
+*.user
+*.suo
+
+# Local credentials and runtime documents
+**/.env
+**/.env.local
+**/.env.*.local
+FundManagementAPI/FundManagementAPI/appsettings.json
+**/Uploads/

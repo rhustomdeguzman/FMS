@@ -1,0 +1,1 @@
+dotnet run --project .\FundManagementAPI\FundManagementAPI.csproj --launch-profile http

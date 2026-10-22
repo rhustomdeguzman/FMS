@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Leave API requests and real files/directories to their existing handlers.
+    RewriteRule ^api(?:/|$) - [L]
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # React Router handles these URLs after index.html loads.
+    RewriteRule ^ index.html [L]
+</IfModule>
